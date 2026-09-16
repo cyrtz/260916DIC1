@@ -1,4 +1,4 @@
-# Retro RPS Arcade - DIC 1
+# DIC 1 - Retro RPS Arcade
 
 這是一個結合「個人檔案」與「猜拳遊戲」的互動式網頁應用程式，專為課堂練習（Do in class）所設計。採用了充滿復古街機 (Retro Arcade) 感的視覺風格，包含 CRT 螢幕掃描線特效與復古像素字體。
 
