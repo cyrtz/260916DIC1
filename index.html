@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro RPS - 邱允柔</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+TC:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="scanlines"></div>
     <div class="container">
         <!-- 個人資料區塊 -->
         <aside class="profile-section panel">
             <div class="live-clock" id="clock">00:00:00</div>
-            
+
             <div class="photo-upload-wrapper">
-                <img id="profile-pic" src="https://via.placeholder.com/150/000000/00FF00?text=NO+SIGNAL" alt="Profile Picture">
+                <img id="profile-pic" src="assets/cat.png" alt="Profile Picture">
                 <input type="file" id="file-upload" accept="image/*" hidden>
                 <button class="btn btn-sm" onclick="document.getElementById('file-upload').click()">上傳相片</button>
             </div>
@@ -84,7 +87,8 @@
             </div>
         </main>
     </div>
-    
+
     <script src="app.js"></script>
 </body>
+
 </html>
