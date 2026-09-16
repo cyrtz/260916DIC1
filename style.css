@@ -1,0 +1,339 @@
+:root {
+    --bg-color: #0d0e15;
+    --panel-bg: #1a1c29;
+    --primary: #00ffcc;
+    --secondary: #ff0055;
+    --text-main: #ffffff;
+    --text-dim: #7a829e;
+    --border-color: #00ffcc;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Press Start 2P', 'Noto Sans TC', monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* CRT Scanline Effect */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0,0,0,0.2) 50%,
+        rgba(0,0,0,0.2)
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.3;
+}
+
+.container {
+    display: flex;
+    gap: 2rem;
+    width: 95%;
+    max-width: 1200px;
+    height: 90vh;
+    z-index: 1;
+}
+
+.panel {
+    background-color: var(--panel-bg);
+    border: 4px solid var(--border-color);
+    box-shadow: 0 0 15px var(--border-color), inset 0 0 10px var(--border-color);
+    padding: 2rem;
+    border-radius: 4px;
+}
+
+/* Profile Section */
+.profile-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 350px;
+}
+
+.live-clock {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    text-shadow: 0 0 10px var(--secondary);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+.photo-upload-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+#profile-pic {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border: 4px solid var(--primary);
+    image-rendering: pixelated;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-shadow: 0 0 5px var(--primary);
+}
+
+.profile-bio {
+    color: var(--text-dim);
+    line-height: 1.8;
+    font-size: 0.8rem;
+    text-align: left;
+    width: 100%;
+}
+.profile-bio p {
+    margin-bottom: 0.5rem;
+}
+
+/* Game Section */
+.game-section {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px dashed var(--text-dim);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.game-header h2 {
+    color: var(--primary);
+    text-shadow: 0 0 5px var(--primary);
+}
+
+.mode-selector {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Buttons */
+.btn {
+    background: transparent;
+    color: var(--text-main);
+    border: 2px solid var(--text-main);
+    padding: 0.8rem 1.2rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background: var(--text-main);
+    color: var(--bg-color);
+}
+
+.btn.active {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    box-shadow: 0 0 10px var(--secondary);
+}
+
+.btn.active:hover {
+    background: var(--secondary);
+    color: var(--bg-color);
+}
+
+.btn-sm {
+    padding: 0.5rem;
+    font-size: 0.6rem;
+}
+
+/* Score Board */
+.score-board {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.score-badge {
+    text-align: center;
+}
+
+.score-badge .label {
+    display: block;
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+}
+
+.score-badge .score {
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 0 8px #fff;
+}
+
+/* Arena */
+.arena {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+}
+
+.player-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 30%;
+}
+
+.player-zone h3 {
+    font-size: 0.8rem;
+    color: var(--primary);
+}
+
+.action-display {
+    width: 100px;
+    height: 100px;
+    border: 4px dashed var(--text-dim);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    background: rgba(0,0,0,0.5);
+}
+
+.action-display.winner {
+    border-color: var(--primary);
+    border-style: solid;
+    box-shadow: 0 0 15px var(--primary);
+    animation: blink 0.5s infinite alternate;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0.5; }
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-action {
+    background: var(--panel-bg);
+    border: 3px solid var(--text-dim);
+    color: white;
+    font-size: 1.5rem;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: all 0.1s;
+    border-radius: 8px;
+}
+
+.btn-action:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 0 var(--primary);
+}
+
+.btn-action:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.help-text {
+    font-size: 0.6rem;
+    color: var(--secondary);
+    line-height: 1.5;
+}
+
+.ready-badge {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+    font-size: 0.6rem;
+}
+
+.ready-badge.ready {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.vs-badge {
+    font-size: 2rem;
+    color: var(--secondary);
+    text-shadow: 0 0 10px var(--secondary);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.result-display {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+    margin-top: 2rem;
+    min-height: 2rem;
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem 0;
+    }
+    .profile-section {
+        max-width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .score-board {
+        gap: 1rem;
+    }
+    .arena {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .player-zone {
+        width: 100%;
+    }
+}

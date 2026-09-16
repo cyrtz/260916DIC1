@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro RPS - 邱允柔</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="container">
+        <!-- 個人資料區塊 -->
+        <aside class="profile-section panel">
+            <div class="live-clock" id="clock">00:00:00</div>
+            
+            <div class="photo-upload-wrapper">
+                <img id="profile-pic" src="https://via.placeholder.com/150/000000/00FF00?text=NO+SIGNAL" alt="Profile Picture">
+                <input type="file" id="file-upload" accept="image/*" hidden>
+                <button class="btn btn-sm" onclick="document.getElementById('file-upload').click()">上傳相片</button>
+            </div>
+
+            <h1 class="profile-name">邱允柔</h1>
+            <div class="profile-bio">
+                <p>READY PLAYER ONE</p>
+                <p>LEVEL: 99</p>
+                <p>STATUS: ONLINE</p>
+            </div>
+        </aside>
+
+        <!-- 遊戲區塊 -->
+        <main class="game-section panel">
+            <header class="game-header">
+                <h2>R-P-S ARCADE</h2>
+                <div class="mode-selector">
+                    <button id="btn-pve" class="btn active">1P (VS COM)</button>
+                    <button id="btn-pvp" class="btn">2P (LOCAL)</button>
+                </div>
+            </header>
+
+            <div class="score-board">
+                <div class="score-badge">
+                    <span class="label">P1 SCORE</span>
+                    <span id="score-p1" class="score">0</span>
+                </div>
+                <div class="score-badge">
+                    <span class="label">P2/COM SCORE</span>
+                    <span id="score-p2" class="score">0</span>
+                </div>
+            </div>
+
+            <div class="arena">
+                <div class="player-zone" id="zone-p1">
+                    <h3>PLAYER 1</h3>
+                    <div class="action-display" id="display-p1">?</div>
+                    <div class="controls pve-controls">
+                        <button class="btn-action" data-choice="rock">✊</button>
+                        <button class="btn-action" data-choice="paper">🖐</button>
+                        <button class="btn-action" data-choice="scissors">✌️</button>
+                    </div>
+                    <div class="controls pvp-controls hidden">
+                        <p class="help-text">使用按鍵: A(✊) S(🖐) D(✌️)</p>
+                        <div id="ready-p1" class="ready-badge">WAITING</div>
+                    </div>
+                </div>
+
+                <div class="vs-badge">VS</div>
+
+                <div class="player-zone" id="zone-p2">
+                    <h3 id="label-p2">COMPUTER</h3>
+                    <div class="action-display" id="display-p2">?</div>
+                    <div class="controls pve-controls hidden">
+                        <!-- COM doesn't need buttons -->
+                    </div>
+                    <div class="controls pvp-controls hidden">
+                        <p class="help-text">使用按鍵: J(✊) K(🖐) L(✌️)</p>
+                        <div id="ready-p2" class="ready-badge">WAITING</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-display" id="round-result">
+                INSERT COIN TO START
+            </div>
+        </main>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
